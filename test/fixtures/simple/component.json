@@ -1,4 +1,4 @@
 {
   "name": "simple",
-  "templates": ["template.jade"]
+  "templates": ["template.jade", "templates/template2.jade"]
 }

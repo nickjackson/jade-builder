@@ -30,12 +30,9 @@ function compileJade(builder) {
     templates.forEach(function(file){
       var ext = path.extname(file);
       if ('.jade' != ext) return;
-
-      file = pkg.path(file);
-      var template = fs.readFileSync(file, 'utf8');
+      
+      var template = fs.readFileSync(pkg.path(file), 'utf8');
       var js = jade.compile(template, { client: true, compileDebug: false });
-
-      file = path.basename(file, '.jade') + '.js';
 
       var name = builder.root
         ? builder.conf.name
@@ -44,7 +41,7 @@ function compileJade(builder) {
       var fn = 'var jade = require("/' + name + '/jade.runtime");\n'
       fn = fn + 'module.exports = ' + js;
 
-      pkg.addFile('scripts', file, fn);
+      pkg.addFile('scripts', file + '.js' , fn);
     });
   });
 }

@@ -15,11 +15,26 @@ describe('jade-builder', function(){
     builder.build(function(err, res){
       if (err) return done(err);
 
-      var fn = 'require("simple/template")({title:"Node", name: "Foo"})';
+      var fn = 'require("simple/template.jade")({title:"Node", name: "Foo"})';
       var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
 
       var html = read(__dirname + '/fixtures/simple.html', 'utf8');
       expect(html).to.equal(returned);
+      done();
+    })
+  })
+  
+  it('should render correct jade when in a subfolder', function(done){
+    var builder = new Builder('test/fixtures/simple');
+    builder.use(jadeBuilder);
+
+    builder.build(function(err, res){
+      if (err) return done(err);
+
+      var fn = 'require("simple/templates/template2.jade")()';
+      var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
+      
+      expect(returned).to.equal("<h1>Template 2</h1>");
       done();
     })
   })
@@ -32,7 +47,7 @@ describe('jade-builder', function(){
     builder.build(function(err, res){
       if (err) return done(err);
 
-      var fn = 'require("simple/template")({title:"Node", name: "Foo"})';
+      var fn = 'require("simple/template.jade")({title:"Node", name: "Foo"})';
       var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
 
       var html = read(__dirname + '/fixtures/simple.html', 'utf8');
@@ -49,7 +64,7 @@ describe('jade-builder', function(){
     builder.build(function(err, res){
       if (err) return done(err);
 
-      var fn = 'require("boot/template")({title:"Node", name: "Foo"})';
+      var fn = 'require("boot/template.jade")({title:"Node", name: "Foo"})';
       var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
 
       var html = read(__dirname + '/fixtures/boot.html', 'utf8');
