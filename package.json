@@ -1,6 +1,6 @@
 {
   "name": "jade-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Jade middleware to use with components builder.js",
   "keywords": [
     "component",
