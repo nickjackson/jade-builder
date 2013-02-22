@@ -1,0 +1,7 @@
+{
+  "name": "boot",
+  "templates": ["template.jade"],
+  "dependencies" : {
+    "simple" : "../simple"
+  }
+}

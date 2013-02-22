@@ -1,0 +1,24 @@
+{
+  "name": "jade-builder",
+  "version": "0.0.1",
+  "description": "Jade middleware to use with components builder.js",
+  "keywords": [
+    "component",
+    "jade",
+    "builder",
+    "middleware"
+  ],
+  "author": "Nick Jackson <contact@nickjjackson.com>",
+  "dependencies": {
+    "jade": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "component-builder": "*",
+    "expect.js": "*"
+  },
+  "main": "index",
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
