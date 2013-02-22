@@ -3,9 +3,9 @@
 
 ## What it does
 
-This will automatically register the Jade runtime and can be used with `require('jade.runtime')` in your client side app. The `jade` variable will not be global by default.
+This will automatically register the Jade client side runtime and can be required with `require('jade.runtime')`. The `jade` variable will not be global.
 
-Any jade templates will automatically be compiled and registered so that they can be required just like any script. Also, the jade.runtime will be required automatically for each jade template also.
+Any Jade templates will automatically be compiled and registered so that they can be required just like any script. The `jade.runtime` script will be required automatically for each jade template registered.
 
 ## License
 
