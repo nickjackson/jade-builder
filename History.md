@@ -1,3 +1,8 @@
+0.1.0 / 2013-02-25
+==================
+  * Pegged Jade at 0.28.1
+  * adding support for templates to extend and include others
+    [[Thibaud Cummings]](https://github.com/athibaud)
 
 0.0.2 / 2013-02-22 17:45
 ==================
