@@ -10,7 +10,7 @@
   ],
   "author": "Nick Jackson <contact@nickjjackson.com>",
   "dependencies": {
-    "jade": "*"
+    "jade": "0.28.1"
   },
   "devDependencies": {
     "mocha": "*",
