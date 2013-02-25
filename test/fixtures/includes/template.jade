@@ -1,7 +1,6 @@
-html
-  head
-    title #{title}
-  body
-    p about to include some heads
-    include inc/headers
-    p hi there #{name}!
+extends ext/main
+
+block body
+  p about to include some heads
+  include inc/headers
+  p hi there #{name}!
