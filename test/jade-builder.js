@@ -81,11 +81,10 @@ describe('jade-builder', function(){
     builder.build(function(err, res){
       if (err) return done(err);
 
-      var fn = 'require("includes/template.jade")({title:"Includers", name: "Billy"})';
+      var fn = 'require("includes/template.jade")({title:"Includes", name: "Foo"})';
       var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
-      //console.log('returned', returned);
+
       var html = read(__dirname + '/fixtures/includes.html', 'utf8');
-      //console.log('html', html);
       expect(html).to.equal(returned);
       done();
     })
