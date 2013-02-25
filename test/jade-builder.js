@@ -3,7 +3,7 @@ var Builder = require('component-builder')
   , expect = require('expect.js')
   , vm = require('vm')
   , fs = require('fs')
-  , read = fs.readFileSync
+  , read = fs.readFileSync;
 
 
 describe('jade-builder', function(){
@@ -68,6 +68,24 @@ describe('jade-builder', function(){
       var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
 
       var html = read(__dirname + '/fixtures/boot.html', 'utf8');
+      expect(html).to.equal(returned);
+      done();
+    })
+  })
+  
+  it('should render correct jade with includes', function(done){
+    var builder = new Builder('test/fixtures/includes');
+    builder.use(jadeBuilder);
+    builder.addLookup(__dirname + '/fixtures');
+
+    builder.build(function(err, res){
+      if (err) return done(err);
+
+      var fn = 'require("includes/template.jade")({title:"Includers", name: "Billy"})';
+      var returned = vm.runInNewContext(res.require + res.js + '; ' + fn);
+      //console.log('returned', returned);
+      var html = read(__dirname + '/fixtures/includes.html', 'utf8');
+      //console.log('html', html);
       expect(html).to.equal(returned);
       done();
     })
