@@ -1,0 +1,4 @@
+{
+  "name": "includes",
+  "templates": ["template.jade"]
+}

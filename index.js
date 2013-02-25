@@ -32,7 +32,8 @@ function compileJade(builder) {
       if ('.jade' != ext) return;
       
       var template = fs.readFileSync(pkg.path(file), 'utf8');
-      var js = jade.compile(template, { client: true, compileDebug: false });
+      var filename = path.resolve(pkg.dir, file);
+      var js = jade.compile(template, { client: true, compileDebug: false, filename: filename });
 
       var name = builder.root
         ? builder.conf.name
